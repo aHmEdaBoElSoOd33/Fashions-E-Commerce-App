@@ -10,12 +10,13 @@ import UIKit
 class ProuductDetailsVC: UIViewController {
     //MARK: - IBOutlets
     
+    @IBOutlet weak var addtoCartButton: UIButton!
     @IBOutlet weak var productCollectionView: UICollectionView!
     @IBOutlet weak var pageControl: UIPageControl!
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var addtoFavoraitsBtn: UIButton!
     @IBOutlet weak var productName: UILabel!
-    @IBOutlet weak var productDescription: UILabel!
+    @IBOutlet weak var productDescription: UITextView!
     //MARK: - Variables
     
     var currentPage = 0{
@@ -23,6 +24,7 @@ class ProuductDetailsVC: UIViewController {
             pageControl.currentPage = currentPage
         }
     }
+    var cartApi = CartApi()
     var wishlistApi = WishlistApi()
     var productDetailApi = ProductDetailsApi()
     var id : Int?
@@ -47,6 +49,11 @@ class ProuductDetailsVC: UIViewController {
             if let data = data{
                 self.productdetails = data
                 self.pageControl.numberOfPages = (self.productdetails?.images!.count)!
+                if (self.productdetails?.in_cart)!{
+                    self.addtoCartButton.setTitle("  Remove from cart", for: .normal)
+                }else{
+                    self.addtoCartButton.setTitle("  Add to cart", for: .normal)
+                }
                 if (self.productdetails?.in_favorites)!{
                     self.addtoFavoraitsBtn.setImage(UIImage(systemName: "heart.circle.fill"), for: .normal)
                     self.addtoFavoraitsBtn.tintColor = .red
@@ -76,6 +83,7 @@ class ProuductDetailsVC: UIViewController {
     }
     
     func uiSetup(){
+        cartApi.delegate = self
         view.addSubview(indicatorView)
         indicatorView.startAnimating()
         view.isUserInteractionEnabled = false
@@ -92,6 +100,7 @@ class ProuductDetailsVC: UIViewController {
     }
     
     @IBAction func addToCartBtn(_ sender: Any) {
+        cartApi.addOrRemoveproductFromCart(id: (productdetails?.id)!)
     }
     
     @IBAction func shareBtn(_ sender: Any) {
@@ -118,7 +127,15 @@ class ProuductDetailsVC: UIViewController {
 }
 
 
-extension ProuductDetailsVC : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout , WishlistApiDelegate {
+extension ProuductDetailsVC : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout , WishlistApiDelegate  , CartApiDelegate{
+    func cartRequestisDone(message: String) {
+        showALert(message: message)
+    }
+    
+    func cartRequestisFail(message: String) {
+        showALert(message: message)
+    }
+    
     func addtoWishlistIsDone(message: String) {
         showALert(message: message)
     }

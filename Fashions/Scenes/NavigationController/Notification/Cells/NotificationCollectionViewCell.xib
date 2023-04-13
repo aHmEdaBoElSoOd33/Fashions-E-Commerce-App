@@ -20,7 +20,7 @@
                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Y8A-wZ-uPT">
                         <rect key="frame" x="0.0" y="0.0" width="337" height="88"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="fRd-I4-MRa">
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="iconnn" translatesAutoresizingMaskIntoConstraints="NO" id="fRd-I4-MRa">
                                 <rect key="frame" x="0.0" y="19" width="50" height="50"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -34,13 +34,13 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="fIF-Po-NWr">
-                                <rect key="frame" x="59.999999999999993" y="19" width="31.666666666666664" height="19.333333333333329"/>
+                                <rect key="frame" x="59.999999999999993" y="24" width="31.666666666666664" height="19.333333333333329"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="message" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2is-pU-rJ0">
-                                <rect key="frame" x="60" y="43.333333333333336" width="50.666666666666657" height="13.333333333333336"/>
+                                <rect key="frame" x="60" y="48.333333333333336" width="50.666666666666657" height="13.333333333333336"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="12"/>
                                 <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -53,7 +53,7 @@
                             <constraint firstItem="fIF-Po-NWr" firstAttribute="leading" secondItem="fRd-I4-MRa" secondAttribute="trailing" constant="10" id="ObC-vR-nNO"/>
                             <constraint firstItem="2is-pU-rJ0" firstAttribute="top" secondItem="fIF-Po-NWr" secondAttribute="bottom" constant="5" id="PbA-uP-3nN"/>
                             <constraint firstItem="fRd-I4-MRa" firstAttribute="leading" secondItem="Y8A-wZ-uPT" secondAttribute="leading" id="qiw-J0-YiI"/>
-                            <constraint firstItem="fIF-Po-NWr" firstAttribute="top" secondItem="fRd-I4-MRa" secondAttribute="top" id="zXu-CB-9aK"/>
+                            <constraint firstItem="fIF-Po-NWr" firstAttribute="top" secondItem="fRd-I4-MRa" secondAttribute="top" constant="5" id="zXu-CB-9aK"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -74,6 +74,7 @@
         </collectionViewCell>
     </objects>
     <resources>
+        <image name="iconnn" width="360" height="360"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

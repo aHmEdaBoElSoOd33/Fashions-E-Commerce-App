@@ -10,10 +10,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ProuductDetailsVC" customModule="Fashions" customModuleProvider="target">
             <connections>
+                <outlet property="addtoCartButton" destination="1Jl-MP-DnX" id="N2Z-gH-BdP"/>
                 <outlet property="addtoFavoraitsBtn" destination="TkP-1N-gC9" id="OeA-2e-qJt"/>
                 <outlet property="pageControl" destination="kax-wT-zUV" id="2e2-5F-gej"/>
                 <outlet property="productCollectionView" destination="jOy-zX-O1J" id="J09-vD-bti"/>
-                <outlet property="productDescription" destination="Jlc-4k-Zs7" id="q4j-kX-vDW"/>
+                <outlet property="productDescription" destination="8xn-GI-WZj" id="Nof-2V-oBQ"/>
                 <outlet property="productName" destination="DXw-9Y-SXM" id="EEs-Bd-ayg"/>
                 <outlet property="productPrice" destination="M0o-ID-alF" id="bHC-6S-eRp"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
@@ -127,12 +128,6 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="15" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Jlc-4k-Zs7">
-                    <rect key="frame" x="20" y="470" width="353" height="0.0"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
-                    <nil key="textColor"/>
-                    <nil key="highlightedColor"/>
-                </label>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U3y-Kf-4Y9">
                     <rect key="frame" x="20" y="738" width="353" height="60"/>
                     <subviews>
@@ -141,7 +136,7 @@
                             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                             <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                            <state key="normal" title="   Add to cart" image="icon (2) 2">
+                            <state key="normal" image="icon (2) 2">
                                 <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </state>
                             <userDefinedRuntimeAttributes>
@@ -176,13 +171,22 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </view>
+                <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="8xn-GI-WZj">
+                    <rect key="frame" x="20" y="460" width="353" height="268"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <color key="textColor" systemColor="labelColor"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                </textView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="8xn-GI-WZj" secondAttribute="trailing" constant="20" id="0Lb-g1-FQ4"/>
                 <constraint firstItem="U3y-Kf-4Y9" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="2Sb-UO-15f"/>
                 <constraint firstItem="Cex-p9-EUU" firstAttribute="leading" secondItem="DXw-9Y-SXM" secondAttribute="leading" id="E33-0n-LH3"/>
                 <constraint firstItem="DXw-9Y-SXM" firstAttribute="top" secondItem="jOy-zX-O1J" secondAttribute="bottom" constant="20" id="Fcd-sx-MuO"/>
+                <constraint firstItem="8xn-GI-WZj" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="Ja9-ty-VYO"/>
                 <constraint firstItem="DXw-9Y-SXM" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="NF1-1c-2CI"/>
                 <constraint firstAttribute="trailing" secondItem="DXw-9Y-SXM" secondAttribute="trailing" id="PbX-mk-WEg"/>
                 <constraint firstItem="Cex-p9-EUU" firstAttribute="top" secondItem="DXw-9Y-SXM" secondAttribute="bottom" constant="20" id="RRv-2A-aRw"/>
@@ -191,17 +195,16 @@
                 <constraint firstItem="kax-wT-zUV" firstAttribute="centerX" secondItem="jOy-zX-O1J" secondAttribute="centerX" id="Vb9-qN-Wwi"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="q0k-64-Nt4" secondAttribute="trailing" constant="20" id="Wox-QO-OvM"/>
                 <constraint firstItem="jOy-zX-O1J" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" id="Wqt-YN-Kqi"/>
+                <constraint firstItem="8xn-GI-WZj" firstAttribute="top" secondItem="Cex-p9-EUU" secondAttribute="bottom" id="ZrK-qM-hrQ"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="jOy-zX-O1J" secondAttribute="trailing" id="aLW-bm-nvF"/>
-                <constraint firstItem="Jlc-4k-Zs7" firstAttribute="top" secondItem="Cex-p9-EUU" secondAttribute="bottom" constant="10" id="dSo-to-Izb"/>
                 <constraint firstItem="xhu-CU-KPT" firstAttribute="top" secondItem="jOy-zX-O1J" secondAttribute="top" constant="10" id="kZQ-wN-VEo"/>
                 <constraint firstItem="jOy-zX-O1J" firstAttribute="height" secondItem="i5M-Pr-FkT" secondAttribute="height" multiplier="0.4" id="nPj-Cm-48k"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="U3y-Kf-4Y9" secondAttribute="bottom" constant="20" id="pG0-7M-9hf"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Jlc-4k-Zs7" secondAttribute="trailing" constant="20" id="rmy-Nl-5m1"/>
                 <constraint firstItem="kax-wT-zUV" firstAttribute="bottom" secondItem="jOy-zX-O1J" secondAttribute="bottom" constant="-10" id="tBi-vy-RCX"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="U3y-Kf-4Y9" secondAttribute="trailing" constant="20" id="vGa-OY-JoJ"/>
                 <constraint firstItem="xhu-CU-KPT" firstAttribute="width" secondItem="xhu-CU-KPT" secondAttribute="height" multiplier="1:1" id="vZ8-Yt-nso"/>
-                <constraint firstItem="Jlc-4k-Zs7" firstAttribute="leading" secondItem="Cex-p9-EUU" secondAttribute="leading" id="vZk-uV-f2g"/>
                 <constraint firstItem="xhu-CU-KPT" firstAttribute="leading" secondItem="jOy-zX-O1J" secondAttribute="leading" constant="10" id="wY6-oM-ugq"/>
+                <constraint firstItem="U3y-Kf-4Y9" firstAttribute="top" secondItem="8xn-GI-WZj" secondAttribute="bottom" constant="10" id="wrC-h3-W3o"/>
                 <constraint firstItem="jOy-zX-O1J" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" id="xNW-I3-rFR"/>
                 <constraint firstItem="TkP-1N-gC9" firstAttribute="trailing" secondItem="jOy-zX-O1J" secondAttribute="trailing" constant="-20" id="y1a-uE-go6"/>
                 <constraint firstItem="q0k-64-Nt4" firstAttribute="centerY" secondItem="xhu-CU-KPT" secondAttribute="centerY" id="z3R-gt-ZMQ"/>
@@ -216,6 +219,9 @@
         <image name="menu bar 1" width="35" height="35"/>
         <image name="notification (1) 1" width="13" height="15"/>
         <image name="shere" width="15" height="15"/>
+        <systemColor name="labelColor">
+            <color red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

@@ -73,15 +73,15 @@
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
                             </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10J-tT-4RU">
-                                <rect key="frame" x="110" y="2" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="10J-tT-4RU">
+                                <rect key="frame" x="110" y="2" width="227" height="20.333333333333332"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Axu-Hl-8lW">
-                                <rect key="frame" x="110" y="61" width="42" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <rect key="frame" x="110" y="64" width="40" height="18"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -105,6 +105,7 @@
                             <constraint firstItem="vN6-JQ-4gM" firstAttribute="leading" secondItem="xXA-4A-m70" secondAttribute="leading" constant="10" id="CSq-S7-DQ5"/>
                             <constraint firstItem="vN6-JQ-4gM" firstAttribute="centerY" secondItem="xXA-4A-m70" secondAttribute="centerY" constant="-1.6666666666666714" id="SFg-ib-vNI"/>
                             <constraint firstItem="10J-tT-4RU" firstAttribute="top" secondItem="vN6-JQ-4gM" secondAttribute="top" id="WKg-nR-Kru"/>
+                            <constraint firstAttribute="trailing" secondItem="10J-tT-4RU" secondAttribute="trailing" constant="10" id="WzS-fW-cs3"/>
                             <constraint firstAttribute="trailing" secondItem="eVA-6p-ll3" secondAttribute="trailing" constant="20" id="XGn-ut-K5G"/>
                             <constraint firstItem="Axu-Hl-8lW" firstAttribute="leading" secondItem="vN6-JQ-4gM" secondAttribute="trailing" constant="20" id="Yd3-F9-rvP"/>
                             <constraint firstItem="Axu-Hl-8lW" firstAttribute="bottom" secondItem="vN6-JQ-4gM" secondAttribute="bottom" id="ZBp-DQ-WeP"/>
