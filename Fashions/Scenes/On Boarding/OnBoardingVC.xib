@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="OnBoardingVC" customModule="Fashions" customModuleProvider="target">
+            <connections>
+                <outlet property="pagecontrol" destination="Jt2-yn-Lf3" id="bVG-L5-xf0"/>
+                <outlet property="sliderCollectionView" destination="f0W-uD-Bsw" id="MfH-N5-PuV"/>
+                <outlet property="view" destination="D1l-tM-o1o" id="Rdu-IL-jh6"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="D1l-tM-o1o">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="RTU-qa-eoQ">
+                    <rect key="frame" x="334" y="656" width="60" height="60"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="60" id="R9a-BJ-kFR"/>
+                        <constraint firstAttribute="width" constant="60" id="ioD-yE-opt"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" image="arrow"/>
+                    <connections>
+                        <action selector="nextBtn:" destination="-1" eventType="touchUpInside" id="ZHa-lR-gya"/>
+                    </connections>
+                </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Publish up your selfies to make yourself  more beautiful with this app." textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5yC-bU-L7C">
+                    <rect key="frame" x="20" y="560.33333333333337" width="374" height="45.666666666666629"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                    <nil key="textColor"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="f0W-uD-Bsw">
+                    <rect key="frame" x="20" y="0.0" width="374" height="560.33333333333337"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="0.0" minimumInteritemSpacing="0.0" id="B3Q-Lz-mQS">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
+                <pageControl opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" numberOfPages="3" translatesAutoresizingMaskIntoConstraints="NO" id="Jt2-yn-Lf3">
+                    <rect key="frame" x="-10" y="673" width="115.66666666666667" height="26"/>
+                    <color key="pageIndicatorTintColor" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <color key="currentPageIndicatorTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </pageControl>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="yll-YP-lTh"/>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="f0W-uD-Bsw" firstAttribute="leading" secondItem="yll-YP-lTh" secondAttribute="leading" constant="20" id="0z9-iP-ObE"/>
+                <constraint firstItem="yll-YP-lTh" firstAttribute="trailing" secondItem="f0W-uD-Bsw" secondAttribute="trailing" constant="20" id="75V-Ns-un1"/>
+                <constraint firstItem="5yC-bU-L7C" firstAttribute="leading" secondItem="yll-YP-lTh" secondAttribute="leading" constant="20" id="7GR-YY-hVe"/>
+                <constraint firstItem="yll-YP-lTh" firstAttribute="trailing" secondItem="RTU-qa-eoQ" secondAttribute="trailing" constant="20" id="C2N-fg-L6L"/>
+                <constraint firstItem="f0W-uD-Bsw" firstAttribute="top" secondItem="yll-YP-lTh" secondAttribute="top" id="CR9-rM-jNc"/>
+                <constraint firstItem="Jt2-yn-Lf3" firstAttribute="leading" secondItem="yll-YP-lTh" secondAttribute="leading" constant="-10" id="Rzk-R0-N92"/>
+                <constraint firstItem="Jt2-yn-Lf3" firstAttribute="centerY" secondItem="RTU-qa-eoQ" secondAttribute="centerY" id="T3u-Ui-hNh"/>
+                <constraint firstItem="5yC-bU-L7C" firstAttribute="top" secondItem="f0W-uD-Bsw" secondAttribute="bottom" id="X0n-Se-gu2"/>
+                <constraint firstItem="RTU-qa-eoQ" firstAttribute="top" secondItem="5yC-bU-L7C" secondAttribute="bottom" constant="50" id="cxm-zl-E8f"/>
+                <constraint firstItem="yll-YP-lTh" firstAttribute="trailing" secondItem="5yC-bU-L7C" secondAttribute="trailing" constant="20" id="hti-IZ-40x"/>
+                <constraint firstItem="yll-YP-lTh" firstAttribute="bottom" secondItem="RTU-qa-eoQ" secondAttribute="bottom" constant="20" id="mKF-7v-K2m"/>
+            </constraints>
+            <point key="canvasLocation" x="-397.10144927536237" y="67.663043478260875"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="arrow" width="60" height="60"/>
+    </resources>
+</document>

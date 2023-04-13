@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="BannerCollectionviewCell" id="gTV-IL-0wX" customClass="BannerCollectionviewCell" customModule="Fashions" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="342" height="109"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="342" height="109"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DMz-uY-dn5">
+                        <rect key="frame" x="0.0" y="0.0" width="342" height="109"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="Group 5" translatesAutoresizingMaskIntoConstraints="NO" id="Ax8-sm-HYL">
+                                <rect key="frame" x="0.0" y="0.0" width="342" height="109"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                        <real key="value" value="20"/>
+                                    </userDefinedRuntimeAttribute>
+                                </userDefinedRuntimeAttributes>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="Ax8-sm-HYL" secondAttribute="trailing" id="0aa-Bu-FCa"/>
+                            <constraint firstItem="Ax8-sm-HYL" firstAttribute="top" secondItem="DMz-uY-dn5" secondAttribute="top" id="JFX-26-oom"/>
+                            <constraint firstItem="Ax8-sm-HYL" firstAttribute="leading" secondItem="DMz-uY-dn5" secondAttribute="leading" id="Jqf-xw-3fW"/>
+                            <constraint firstAttribute="bottom" secondItem="Ax8-sm-HYL" secondAttribute="bottom" id="Lea-AJ-fTB"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                                <real key="value" value="30"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </view>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="DMz-uY-dn5" secondAttribute="bottom" id="8XP-uJ-e4A"/>
+                <constraint firstAttribute="trailing" secondItem="DMz-uY-dn5" secondAttribute="trailing" id="AwC-0t-a6D"/>
+                <constraint firstItem="DMz-uY-dn5" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Sc7-qf-Yib"/>
+                <constraint firstItem="DMz-uY-dn5" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="dfs-6d-PiM"/>
+            </constraints>
+            <size key="customSize" width="342" height="109"/>
+            <connections>
+                <outlet property="bannerImage" destination="Ax8-sm-HYL" id="VNP-I7-Ns7"/>
+            </connections>
+            <point key="canvasLocation" x="112.97709923664122" y="39.7887323943662"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="Group 5" width="137" height="83"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

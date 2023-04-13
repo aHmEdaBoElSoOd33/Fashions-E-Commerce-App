@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="21507" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina5_5" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="21505"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="NavHostVC" customModule="Fashions" customModuleProvider="target">
+            <connections>
+                <outlet property="cartBtn" destination="awZ-jA-ZSU" id="phx-9j-yj5"/>
+                <outlet property="homeBtn" destination="h17-2C-p7d" id="Riv-yU-qLd"/>
+                <outlet property="hostView" destination="zkc-sc-lIL" id="etg-F1-Lhz"/>
+                <outlet property="notificationBtn" destination="hE9-QA-0vb" id="Zz5-Vr-xp2"/>
+                <outlet property="profileBtn" destination="gwp-IH-qXF" id="EED-XE-Bty"/>
+                <outlet property="tabbarBackGround" destination="KZE-Hd-QdD" id="kcD-7T-IIm"/>
+                <outlet property="view" destination="iN0-l3-epB" id="5Yk-jP-0sb"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zkc-sc-lIL">
+                    <rect key="frame" x="0.0" y="0.0" width="414" height="696"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </view>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KZE-Hd-QdD">
+                    <rect key="frame" x="0.0" y="666" width="414" height="110"/>
+                    <subviews>
+                        <stackView opaque="NO" contentMode="scaleToFill" distribution="fillEqually" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="pBj-sd-TzS">
+                            <rect key="frame" x="39.666666666666657" y="10" width="335" height="50"/>
+                            <subviews>
+                                <button opaque="NO" tag="2" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="h17-2C-p7d">
+                                    <rect key="frame" x="0.0" y="0.0" width="80" height="50"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="50" id="Xp5-WJ-MJK"/>
+                                        <constraint firstAttribute="width" constant="80" id="hC7-TV-71P"/>
+                                    </constraints>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="home copy"/>
+                                    <state key="selected" image="home"/>
+                                    <connections>
+                                        <action selector="tabBarBtns:" destination="-1" eventType="touchUpInside" id="9c6-G9-o3d"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="3" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="awZ-jA-ZSU">
+                                    <rect key="frame" x="85" y="0.0" width="80" height="50"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="cart"/>
+                                    <state key="selected" image="cart (1)"/>
+                                    <connections>
+                                        <action selector="tabBarBtns:" destination="-1" eventType="touchUpInside" id="Sdc-GI-ifh"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="4" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hE9-QA-0vb">
+                                    <rect key="frame" x="170" y="0.0" width="80" height="50"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="notification (1)"/>
+                                    <state key="selected" image="notification (2)"/>
+                                    <connections>
+                                        <action selector="tabBarBtns:" destination="-1" eventType="touchUpInside" id="ygj-QS-uoc"/>
+                                    </connections>
+                                </button>
+                                <button opaque="NO" tag="5" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="gwp-IH-qXF">
+                                    <rect key="frame" x="255" y="0.0" width="80" height="50"/>
+                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                                    <state key="normal" image="profile"/>
+                                    <state key="selected" image="profile copy"/>
+                                    <connections>
+                                        <action selector="tabBarBtns:" destination="-1" eventType="touchUpInside" id="AXL-6n-FMu"/>
+                                    </connections>
+                                </button>
+                            </subviews>
+                        </stackView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstItem="pBj-sd-TzS" firstAttribute="top" secondItem="KZE-Hd-QdD" secondAttribute="top" constant="10" id="MuN-4u-WmV"/>
+                        <constraint firstItem="pBj-sd-TzS" firstAttribute="centerX" secondItem="KZE-Hd-QdD" secondAttribute="centerX" id="X2D-Mw-dMm"/>
+                        <constraint firstAttribute="height" constant="110" id="pza-Yv-25g"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
+                            <real key="value" value="25"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+            <constraints>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="zkc-sc-lIL" secondAttribute="trailing" id="CYQ-J9-GKI"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="KZE-Hd-QdD" secondAttribute="trailing" id="D6y-MQ-NKT"/>
+                <constraint firstItem="KZE-Hd-QdD" firstAttribute="top" secondItem="zkc-sc-lIL" secondAttribute="bottom" constant="-30" id="Hiq-mz-cMa"/>
+                <constraint firstItem="zkc-sc-lIL" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="QEg-3a-3nI"/>
+                <constraint firstItem="KZE-Hd-QdD" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="VEZ-4L-Whi"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="bottom" secondItem="KZE-Hd-QdD" secondAttribute="bottom" constant="-40" id="dLu-vC-yUG"/>
+                <constraint firstItem="zkc-sc-lIL" firstAttribute="top" secondItem="vUN-kp-3ea" secondAttribute="top" id="rfh-F4-Xca"/>
+            </constraints>
+            <point key="canvasLocation" x="-125" y="20"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="cart" width="17" height="16"/>
+        <image name="cart (1)" width="70" height="30"/>
+        <image name="home" width="76" height="30"/>
+        <image name="home copy" width="16" height="16"/>
+        <image name="notification (1)" width="14" height="16"/>
+        <image name="notification (2)" width="74" height="30"/>
+        <image name="profile" width="13" height="16"/>
+        <image name="profile copy" width="79" height="30"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>
