@@ -62,7 +62,7 @@ class ProuductDetailsVC: UIViewController {
                     self.addtoFavoraitsBtn.tintColor = .darkGray
                 }
                 self.productImages = (data.images)!
-                self.productPrice.text = "\((self.productdetails?.price)!)"
+                self.productPrice.text = "\((self.productdetails?.price)!)$"
                 self.productName.text = self.productdetails?.name
                 self.productDescription.text = self.productdetails?.description
                 self.productCollectionView.reloadData()

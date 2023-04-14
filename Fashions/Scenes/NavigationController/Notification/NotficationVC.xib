@@ -26,7 +26,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eYc-lc-I10">
-                    <rect key="frame" x="20" y="96" width="374" height="640"/>
+                    <rect key="frame" x="20" y="96" width="374" height="600"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DNH-Uw-Lqc">
                         <size key="itemSize" width="128" height="128"/>
@@ -44,7 +44,7 @@
                 <constraint firstItem="eYc-lc-I10" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="78Q-uZ-bZ0"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eYc-lc-I10" secondAttribute="trailing" constant="20" id="RTg-WH-7NL"/>
                 <constraint firstItem="eYc-lc-I10" firstAttribute="top" secondItem="ZeU-I2-woX" secondAttribute="bottom" id="Wxj-XG-O9K"/>
-                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eYc-lc-I10" secondAttribute="bottom" id="rtu-rN-CaC"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eYc-lc-I10" secondAttribute="bottom" constant="40" id="rtu-rN-CaC"/>
             </constraints>
             <point key="canvasLocation" x="-91.304347826086968" y="20.380434782608699"/>
         </view>

@@ -25,6 +25,10 @@ class OrdersVC: UIViewController {
     var indecatorView : UIActivityIndicatorView?
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         uiSetup()
         getOrdersDataFromApi()
     }

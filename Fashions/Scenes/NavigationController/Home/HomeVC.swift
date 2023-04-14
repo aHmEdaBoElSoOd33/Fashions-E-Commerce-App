@@ -7,13 +7,7 @@
 
 import UIKit
 import Kingfisher
-
-protocol Navigation {
-    func navigate()
-}
-
-
-
+  
 class HomeVC: UIViewController{
  
 //MARK: - IBOutlets
@@ -23,8 +17,7 @@ class HomeVC: UIViewController{
     @IBOutlet weak var bannerCollectionView: UICollectionView!
     @IBOutlet weak var naewArrivalCollectionView: UICollectionView!
    //MARK: -  Variables
-    
-    var delegate : Navigation?
+ 
     var wishlistApi = WishlistApi()
     var bannerArray : [Banner] = []
     var productsArray : [Product] = []
@@ -87,7 +80,6 @@ class HomeVC: UIViewController{
     @IBAction func categoriesBtn(_ sender: Any) {
         let vc = CategoriesVC()
         vc.modalPresentationStyle = .fullScreen
-        vc.modalTransitionStyle = .flipHorizontal
         present(vc, animated: true)
     }
  
@@ -128,6 +120,7 @@ extension HomeVC : UICollectionViewDelegate , UICollectionViewDataSource,UIColle
   
     func profireDataIsDone(Data: DataClass) {
         userImage.kf.setImage(with: URL(string: Data.image!))
+        UserDefaults.standard.set(Data.phone, forKey: "userPhone")
         UserDefaults.standard.set(Data.name, forKey: "userName")
         UserDefaults.standard.set(Data.email, forKey: "userEmail")
         UserDefaults.standard.set(Data.image, forKey: "userImage")

@@ -28,7 +28,7 @@
                     <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
                     <subviews>
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cp1-Lk-SBu">
-                            <rect key="frame" x="0.0" y="0.0" width="414" height="820"/>
+                            <rect key="frame" x="0.0" y="0.0" width="414" height="750"/>
                             <subviews>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="b0V-XE-5Vr">
                                     <rect key="frame" x="20" y="80" width="374" height="80"/>
@@ -291,35 +291,14 @@
                                         </userDefinedRuntimeAttribute>
                                     </userDefinedRuntimeAttributes>
                                 </view>
-                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6XA-qq-Xe6">
-                                    <rect key="frame" x="20" y="720" width="374" height="50"/>
-                                    <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    <constraints>
-                                        <constraint firstAttribute="height" constant="50" id="j3U-rV-Mli"/>
-                                    </constraints>
-                                    <fontDescription key="fontDescription" type="boldSystem" pointSize="18"/>
-                                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
-                                    <state key="normal" title="  Log Out" image="icon (2) 4"/>
-                                    <userDefinedRuntimeAttributes>
-                                        <userDefinedRuntimeAttribute type="number" keyPath="cornerRadius">
-                                            <real key="value" value="10"/>
-                                        </userDefinedRuntimeAttribute>
-                                    </userDefinedRuntimeAttributes>
-                                    <connections>
-                                        <action selector="logOutBtn:" destination="-1" eventType="touchUpInside" id="pxf-Br-sOS"/>
-                                    </connections>
-                                </button>
                             </subviews>
                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             <constraints>
                                 <constraint firstItem="omU-H2-Pll" firstAttribute="top" secondItem="aVU-0c-ZOl" secondAttribute="bottom" constant="30" id="9yn-gB-GcR"/>
                                 <constraint firstItem="aVU-0c-ZOl" firstAttribute="trailing" secondItem="b0V-XE-5Vr" secondAttribute="trailing" id="HOu-Ew-OIo"/>
                                 <constraint firstItem="b0V-XE-5Vr" firstAttribute="leading" secondItem="cp1-Lk-SBu" secondAttribute="leading" constant="20" id="P9P-xY-sfb"/>
-                                <constraint firstItem="6XA-qq-Xe6" firstAttribute="leading" secondItem="omU-H2-Pll" secondAttribute="leading" id="To8-FM-ygD"/>
                                 <constraint firstItem="omU-H2-Pll" firstAttribute="trailing" secondItem="aVU-0c-ZOl" secondAttribute="trailing" id="Y7T-0R-vMq"/>
-                                <constraint firstItem="6XA-qq-Xe6" firstAttribute="top" secondItem="omU-H2-Pll" secondAttribute="bottom" constant="20" id="at9-t4-vDL"/>
-                                <constraint firstItem="6XA-qq-Xe6" firstAttribute="trailing" secondItem="omU-H2-Pll" secondAttribute="trailing" id="edv-Rd-Hy8"/>
-                                <constraint firstAttribute="height" constant="820" id="gK9-sa-lwi"/>
+                                <constraint firstAttribute="height" constant="750" id="gK9-sa-lwi"/>
                                 <constraint firstAttribute="trailing" secondItem="b0V-XE-5Vr" secondAttribute="trailing" constant="20" id="iqA-5V-4xF"/>
                                 <constraint firstItem="b0V-XE-5Vr" firstAttribute="top" secondItem="cp1-Lk-SBu" secondAttribute="top" constant="80" id="jar-tH-BsB"/>
                                 <constraint firstItem="omU-H2-Pll" firstAttribute="leading" secondItem="aVU-0c-ZOl" secondAttribute="leading" id="l77-g1-Fgv"/>
@@ -368,7 +347,6 @@
     <resources>
         <image name="Vector (1)" width="7" height="10"/>
         <image name="icon (2) 3" width="40" height="40"/>
-        <image name="icon (2) 4" width="17" height="17"/>
         <image name="icon (2) 5" width="40" height="40"/>
         <image name="icon (2) copy" width="40" height="40"/>
         <image name="icon (2) copy 1" width="40" height="40"/>

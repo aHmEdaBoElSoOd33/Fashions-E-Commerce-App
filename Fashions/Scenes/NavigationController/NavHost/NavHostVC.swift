@@ -39,7 +39,6 @@ class NavHostVC: UIViewController {
         tabbarBackGround.layer.shadowOpacity = 0.5
         homeBtn.isSelected = true
         replaceV(HomeVC())
-        navigatDelegate.delegate = self
     }
     
     @objc func replaceV(_ ID:UIViewController){
@@ -96,10 +95,4 @@ class NavHostVC: UIViewController {
     }
 }
          
-
-extension NavHostVC : Navigation{
-    func navigate() {
-        print("Done")
-        replaceV(ProfileVC())
-    }
-}
+ 

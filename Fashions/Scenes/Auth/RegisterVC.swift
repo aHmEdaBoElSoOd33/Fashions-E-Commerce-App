@@ -22,7 +22,8 @@ class RegisterVC: UIViewController {
     
     var termBtnIsSelected = false
     var registerApi = RegisterApi()
-    
+    lazy var indicatorView : UIActivityIndicatorView = { self.activityIndicator(style:.medium,center: self.view.center)
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -55,6 +56,9 @@ class RegisterVC: UIViewController {
         
         if termBtnIsSelected{
             registerApi.userRegester(name, email, phone, password)
+            view.addSubview(indicatorView)
+            indicatorView.startAnimating()
+            view.isUserInteractionEnabled = false
         }else{
             termsCheckBtn.layer.add(shakeAnimation(), forKey: "shake")
             termsCheckBtn.tintColor = .red
@@ -92,6 +96,8 @@ class RegisterVC: UIViewController {
 extension RegisterVC : RegisterApiDelegate{
     func RegisterIsDone(message: String, token: String) {
         if token == "" {
+            indicatorView.stopAnimating()
+            view.isUserInteractionEnabled = true
             let vc = AlertVC()
             vc.message = message
             vc.state = "fail"
@@ -100,6 +106,8 @@ extension RegisterVC : RegisterApiDelegate{
             vc.modalPresentationStyle = .overCurrentContext
             present(vc, animated: true)
         }else{
+            indicatorView.stopAnimating()
+            view.isUserInteractionEnabled = true
             let vc = loginSuccessAlertVC()
             vc.modalPresentationStyle = .fullScreen
             present(vc, animated: true)
@@ -107,6 +115,8 @@ extension RegisterVC : RegisterApiDelegate{
     }
     
     func RegisterIsFail(message: String) {
+        indicatorView.stopAnimating()
+        view.isUserInteractionEnabled = true
       showALert(message: message)
     } 
 }

@@ -15,7 +15,6 @@ class LoginVC: UIViewController{
     @IBOutlet weak var googleBtn: UIButton!
     @IBOutlet weak var passwordTxtField: UITextField!
     @IBOutlet weak var emailTxtField: UITextField!
- 
     @IBOutlet weak var loginBtn: UIButton!
     @IBOutlet weak var facebookBtn: UIButton!
     
@@ -23,12 +22,11 @@ class LoginVC: UIViewController{
     var email = "a@g.com"
     var pass = "1111"
     var loginApi = RegisterApi()
-    var alertDelegate = AlertVC()
-    
+    lazy var indicatorView : UIActivityIndicatorView = { self.activityIndicator(style:.medium,center: self.view.center)
+    }()
     override func viewDidLoad() {
         super.viewDidLoad()
         uiSetup()
-        alertDelegate.delegate = self
     }
 //MARK: - Functions
    
@@ -52,6 +50,9 @@ class LoginVC: UIViewController{
             return
         }
         loginApi.userLogin(email, password)
+        view.addSubview(indicatorView)
+        indicatorView.startAnimating()
+        view.isUserInteractionEnabled = false
     }
     
     
@@ -62,17 +63,20 @@ class LoginVC: UIViewController{
         dismiss(animated: true)
     }
     @IBAction func loginBtn(_ sender: Any) {
+        
         validateForLogin()
     }
 }
 
 
-extension LoginVC : LoginApiDelegate , AlertVCDelegate{
-    func navigate(view: UIViewController) {
-      
-    }
+extension LoginVC : LoginApiDelegate {
+   
+    
+    
     func LoginIsDone(massage: String, token: String) {
         if token == "" {
+            indicatorView.stopAnimating()
+            view.isUserInteractionEnabled = true
             let vc = AlertVC()
             vc.message = massage
             vc.state = "fail"
@@ -81,6 +85,8 @@ extension LoginVC : LoginApiDelegate , AlertVCDelegate{
             vc.modalPresentationStyle = .overCurrentContext
             present(vc, animated: true)
         }else{
+            indicatorView.stopAnimating()
+            view.isUserInteractionEnabled = true
             let vc = AlertVC()
             vc.message = massage
             vc.state = "success"
@@ -91,10 +97,7 @@ extension LoginVC : LoginApiDelegate , AlertVCDelegate{
             present(vc, animated: true)
         }
     }
-    
-    
-    
     func LoginIsFail(massage: String) {
-       
+       print(massage)
     }
 }

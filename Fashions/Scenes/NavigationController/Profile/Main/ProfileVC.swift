@@ -26,7 +26,6 @@ class ProfileVC: UIViewController {
     //MARK: - Variables
     
     static var ID = String(describing: ProfileVC.self)
-    var logoutApi = RegisterApi()
     var homeApi = HomeApi()
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,7 +34,6 @@ class ProfileVC: UIViewController {
 
     
     //MARK: - Functions
-     
     
     func uiSetup(){
         if UserDefaults.standard.string(forKey: "userName") == nil{
@@ -46,7 +44,7 @@ class ProfileVC: UIViewController {
             userEmailLbl.text = UserDefaults.standard.string(forKey: "userEmail")
             userImage.kf.setImage(with: URL(string: UserDefaults.standard.string(forKey: "userImage")!))
         }
-        logoutApi.logOutDelegate = self
+        
         
         view1.layer.borderColor = UIColor.lightGray.cgColor
         view3.layer.borderColor = UIColor.lightGray.cgColor
@@ -60,6 +58,10 @@ class ProfileVC: UIViewController {
         
         
     }
+    
+    
+    
+    
     
     func navigtaToAnotherView(VC:UIViewController){
         let vc = VC
@@ -75,6 +77,7 @@ class ProfileVC: UIViewController {
     //MARK: - IBActions
     
     @IBAction func personalDetailsBtn(_ sender: Any) {
+        navigtaToAnotherView(VC: PersonalDetailsVC())
     }
     
     @IBAction func myOrdersBtn(_ sender: Any) {
@@ -86,6 +89,7 @@ class ProfileVC: UIViewController {
     }
     
     @IBAction func shippingAdressBtn(_ sender: Any) {
+        navigtaToAnotherView(VC: ShippingAddressVC())
     }
     
     @IBAction func settingsBtn(_ sender: Any) {
@@ -98,23 +102,13 @@ class ProfileVC: UIViewController {
     @IBAction func communityBtn(_ sender: Any) {
     }
     
-    @IBAction func logOutBtn(_ sender: Any) {
-        UserDefaults.standard.set(nil, forKey: "userToken")
-        UserDefaults.standard.set(nil, forKey: "userName")
-        UserDefaults.standard.set(nil, forKey: "userEmail")
-        UserDefaults.standard.set(nil, forKey: "userImage") 
-        logoutApi.LogoutfromDataBase()
-        let vc = SecondSplashVC()
-        vc.modalTransitionStyle = .crossDissolve
-        vc.modalPresentationStyle = .fullScreen
-        present(vc, animated: true)
-    }
+
     
 }
 
 
 
-extension ProfileVC : LogOutApiDelegate  , HomeApiDelegate{
+extension ProfileVC : HomeApiDelegate{
     func profireDataIsDone(Data: DataClass) {
         userNameLbl.text = Data.name
         userEmailLbl.text = Data.email
@@ -124,17 +118,5 @@ extension ProfileVC : LogOutApiDelegate  , HomeApiDelegate{
     func profileDataIsFail(masssage: String) {
         showALert(message: masssage)
     }
-    
-    
-     
-    func logoutIsDone(massage: String) {
-        print(massage)
-        
-    }
-    
-    func logoutIsFail(massage: String) {
-        print(massage)
-    }
-    
     
 }
