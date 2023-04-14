@@ -12,6 +12,7 @@
             <connections>
                 <outlet property="cancelledBtn" destination="3YJ-KT-RTI" id="uZT-VC-vJ3"/>
                 <outlet property="newBtn" destination="z4k-dB-NHg" id="0At-To-Eao"/>
+                <outlet property="ordersCollectionView" destination="cVZ-Iy-BNT" id="i9C-RH-PDE"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -85,11 +86,23 @@
                         <action selector="switchCollectionNewAndCancelBtns:" destination="-1" eventType="touchUpInside" id="Ntb-cc-Fqi"/>
                     </connections>
                 </button>
+                <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="cVZ-Iy-BNT">
+                    <rect key="frame" x="20" y="146" width="374" height="590"/>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="j8H-gU-xXy">
+                        <size key="itemSize" width="128" height="128"/>
+                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                    </collectionViewFlowLayout>
+                </collectionView>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="cVZ-Iy-BNT" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="2Wb-Nh-dlZ"/>
                 <constraint firstItem="Uza-83-REa" firstAttribute="width" secondItem="Uza-83-REa" secondAttribute="height" multiplier="1:1" id="Awb-lA-LM8"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="cVZ-Iy-BNT" secondAttribute="bottom" id="Ayt-S6-AkT"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="3YJ-KT-RTI" secondAttribute="trailing" constant="20" id="CDe-fm-F7v"/>
                 <constraint firstItem="3YJ-KT-RTI" firstAttribute="bottom" secondItem="kHr-NV-TeL" secondAttribute="bottom" id="I0A-I9-S3P"/>
                 <constraint firstItem="Uza-83-REa" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="JJf-Zr-qyh"/>
@@ -97,6 +110,8 @@
                 <constraint firstItem="3YJ-KT-RTI" firstAttribute="leading" secondItem="z4k-dB-NHg" secondAttribute="trailing" constant="10" id="doJ-Bb-qQx"/>
                 <constraint firstItem="kHr-NV-TeL" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="eXs-TR-Om1"/>
                 <constraint firstItem="Uza-83-REa" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="nmc-1n-cG1"/>
+                <constraint firstItem="cVZ-Iy-BNT" firstAttribute="top" secondItem="kHr-NV-TeL" secondAttribute="bottom" constant="20" id="oXn-Wu-AuV"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="cVZ-Iy-BNT" secondAttribute="trailing" constant="20" id="saI-oC-5lT"/>
                 <constraint firstItem="z4k-dB-NHg" firstAttribute="bottom" secondItem="kHr-NV-TeL" secondAttribute="bottom" id="z77-3H-rmP"/>
             </constraints>
             <point key="canvasLocation" x="-18" y="21"/>

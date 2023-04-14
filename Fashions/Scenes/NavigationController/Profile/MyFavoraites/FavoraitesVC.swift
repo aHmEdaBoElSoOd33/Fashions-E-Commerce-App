@@ -97,15 +97,20 @@ extension FavoraitesVC : UICollectionViewDelegate , UICollectionViewDataSource ,
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoraitesCollectionViewCell.ID, for: indexPath) as! FavoraitesCollectionViewCell
-        if cartArray.isEmpty{
+        if cartArray.isEmpty {
             cell.addToCartBtn.setTitle("Add to Cart", for: .normal)
-        }else{
-            for i in 0...cartArray.count-1{
-                if wishlistArray[indexPath.row].product?.id == cartArray[i].product?.id{
-                    cell.addToCartBtn.setTitle("Remove From Cart", for: .normal)
-                }else{
-                    cell.addToCartBtn.setTitle("Add to Cart", for: .normal)
+        } else {
+            var isInCart = false
+            for i in 0..<cartArray.count {
+                if wishlistArray[indexPath.row].product?.id == cartArray[i].product?.id {
+                    isInCart = true
+                    break
                 }
+            }
+            if isInCart {
+                cell.addToCartBtn.setTitle("Remove From Cart", for: .normal)
+            } else {
+                cell.addToCartBtn.setTitle("Add to Cart", for: .normal)
             }
         }
         cell.delegate = self
@@ -115,7 +120,7 @@ extension FavoraitesVC : UICollectionViewDelegate , UICollectionViewDataSource ,
         cell.viewCell.layer.shadowRadius = 5
         cell.productName.text = wishlistArray[indexPath.row].product?.name
         cell.productImage.kf.setImage(with: URL(string: (wishlistArray[indexPath.row].product?.image)!))
-        cell.productPrice.text = "\((wishlistArray[indexPath.row].product?.price)!)"
+        cell.productPrice.text = "\(Float((wishlistArray[indexPath.row].product?.price)!))"
         return cell
     }
     

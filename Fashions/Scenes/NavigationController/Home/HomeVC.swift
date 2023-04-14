@@ -40,11 +40,19 @@ class HomeVC: UIViewController{
     override func viewWillAppear(_ animated: Bool) {
         uiSetup()
         getHomeDataFromApi()
-        homeApi.delegate = self
+        
     }
     
     func uiSetup(){
-        view.isUserInteractionEnabled = false
+        
+        if UserDefaults.standard.string(forKey: "userImage" ) == nil{
+            homeApi.delegate = self
+            homeApi.getUserProfileData()
+        }else{
+            userImage.kf.setImage(with: URL(string: UserDefaults.standard.string(forKey: "userImage" )! ))
+        }
+        bannerCollectionView.isUserInteractionEnabled = false
+        naewArrivalCollectionView.isUserInteractionEnabled = false
         self.view.addSubview(indicatorView) 
         indicatorView.startAnimating()
         bannerCollectionView.delegate = self
@@ -57,12 +65,12 @@ class HomeVC: UIViewController{
     }
     
     func getHomeDataFromApi(){
-        homeApi.getUserProfileData()
         homeApi.getHomeData { products, banners, error in
             self.productsArray = products!
             self.bannerArray = banners!
             self.indicatorView.stopAnimating()
-            self.view.isUserInteractionEnabled = true
+            self.bannerCollectionView.isUserInteractionEnabled = true
+            self.naewArrivalCollectionView.isUserInteractionEnabled = true
             self.bannerCollectionView.reloadData()
             self.naewArrivalCollectionView.reloadData()
         }
@@ -89,12 +97,14 @@ class HomeVC: UIViewController{
 extension HomeVC : UICollectionViewDelegate , UICollectionViewDataSource,UICollectionViewDelegateFlowLayout, HomeApiDelegate , CellSubclassProductDelegate , WishlistApiDelegate {
     
     func addtoWishlistIsDone(message: String) {
-        self.view.isUserInteractionEnabled = true
+        bannerCollectionView.isUserInteractionEnabled = true
+        naewArrivalCollectionView.isUserInteractionEnabled = true
         showALert(message: message)
     }
     
     func addtoWishlistIsFail(message: String) {
-        self.view.isUserInteractionEnabled = true
+        bannerCollectionView.isUserInteractionEnabled = true
+        naewArrivalCollectionView.isUserInteractionEnabled = true
         showALert(message: message)
     }
     
@@ -108,7 +118,8 @@ extension HomeVC : UICollectionViewDelegate , UICollectionViewDataSource,UIColle
             cell.favBtn.setImage(UIImage(systemName: "heart.circle.fill"), for: .normal)
             cell.favBtn.tintColor = .black
         }
-        self.view.isUserInteractionEnabled = false
+        bannerCollectionView.isUserInteractionEnabled = false
+        naewArrivalCollectionView.isUserInteractionEnabled = false
         print("Button tapped on row \(indexPath.row)")
         
         wishlistApi.addproductToFavoriets(id: productsArray[indexPath.row].id!)

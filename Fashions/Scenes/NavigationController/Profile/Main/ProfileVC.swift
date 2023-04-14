@@ -100,6 +100,9 @@ class ProfileVC: UIViewController {
     
     @IBAction func logOutBtn(_ sender: Any) {
         UserDefaults.standard.set(nil, forKey: "userToken")
+        UserDefaults.standard.set(nil, forKey: "userName")
+        UserDefaults.standard.set(nil, forKey: "userEmail")
+        UserDefaults.standard.set(nil, forKey: "userImage") 
         logoutApi.LogoutfromDataBase()
         let vc = SecondSplashVC()
         vc.modalTransitionStyle = .crossDissolve

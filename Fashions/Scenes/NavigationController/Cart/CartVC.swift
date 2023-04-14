@@ -69,7 +69,7 @@ class CartVC: UIViewController {
         cartApi.getCartProducts { dataArray, data in
             self.cartArray = dataArray!
             self.numberOfItems.text = "Total(\((data?.cart_items?.count)!) item)"
-            self.totalPrice.text = "\((data?.total)!)$"
+            self.totalPrice.text = "\(Float((data?.total)!))$"
             self.getAddressdataFromApi()
             self.cartTableView.reloadData()
             self.indicatorView.stopAnimating()
@@ -163,7 +163,7 @@ extension CartVC : UITableViewDelegate , UITableViewDataSource , UICollectionVie
         cell.cellContent.layer.shadowOpacity = 0.1
         cell.cellContent.layer.shadowOffset = CGSize(width: 0, height: 5)
         cell.cellContent.layer.shadowRadius = 5
-        cell.productPrice.text = "\((cartArray[indexPath.row].product?.price)!)$"
+        cell.productPrice.text = "\(Float((cartArray[indexPath.row].product?.price)!))$"
         cell.productImage.kf.setImage(with: URL(string: (cartArray[indexPath.row].product?.image)!))
         cell.productName.text = cartArray[indexPath.row].product?.name
         
