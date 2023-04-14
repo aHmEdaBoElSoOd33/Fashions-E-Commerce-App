@@ -19,22 +19,14 @@
             <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Qfr-fx-kdW">
-                    <rect key="frame" x="20" y="20" width="40" height="40"/>
-                    <constraints>
-                        <constraint firstAttribute="height" constant="40" id="ACA-wq-xmH"/>
-                    </constraints>
-                    <state key="normal" title="Button"/>
-                    <buttonConfiguration key="configuration" style="plain" image="menu bar 1"/>
-                </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Notification" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZeU-I2-woX">
-                    <rect key="frame" x="20" y="90" width="110" height="24"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                    <rect key="frame" x="20" y="60" width="164.33333333333334" height="36"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
                 <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="eYc-lc-I10">
-                    <rect key="frame" x="20" y="114" width="374" height="622"/>
+                    <rect key="frame" x="20" y="96" width="374" height="640"/>
                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="DNH-Uw-Lqc">
                         <size key="itemSize" width="128" height="128"/>
@@ -47,12 +39,9 @@
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
+                <constraint firstItem="ZeU-I2-woX" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="60" id="3Zf-7T-rfG"/>
                 <constraint firstItem="ZeU-I2-woX" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="4eZ-oX-FW8"/>
                 <constraint firstItem="eYc-lc-I10" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="78Q-uZ-bZ0"/>
-                <constraint firstItem="ZeU-I2-woX" firstAttribute="top" secondItem="Qfr-fx-kdW" secondAttribute="bottom" constant="30" id="Aep-qY-s6t"/>
-                <constraint firstItem="Qfr-fx-kdW" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="C3W-mI-f0Z"/>
-                <constraint firstItem="Qfr-fx-kdW" firstAttribute="width" secondItem="Qfr-fx-kdW" secondAttribute="height" multiplier="1:1" id="KHZ-zQ-uBP"/>
-                <constraint firstItem="Qfr-fx-kdW" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="Mcf-Xt-XQU"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="eYc-lc-I10" secondAttribute="trailing" constant="20" id="RTg-WH-7NL"/>
                 <constraint firstItem="eYc-lc-I10" firstAttribute="top" secondItem="ZeU-I2-woX" secondAttribute="bottom" id="Wxj-XG-O9K"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="eYc-lc-I10" secondAttribute="bottom" id="rtu-rN-CaC"/>
@@ -61,7 +50,6 @@
         </view>
     </objects>
     <resources>
-        <image name="menu bar 1" width="35" height="35"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

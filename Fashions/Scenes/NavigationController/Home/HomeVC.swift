@@ -117,6 +117,9 @@ extension HomeVC : UICollectionViewDelegate , UICollectionViewDataSource,UIColle
   
     func profireDataIsDone(Data: DataClass) {
         userImage.kf.setImage(with: URL(string: Data.image!))
+        UserDefaults.standard.set(Data.name, forKey: "userName")
+        UserDefaults.standard.set(Data.email, forKey: "userEmail")
+        UserDefaults.standard.set(Data.image, forKey: "userImage")
     }
     
     func profileDataIsFail(masssage: String) {

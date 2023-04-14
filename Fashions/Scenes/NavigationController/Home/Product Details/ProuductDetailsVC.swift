@@ -99,7 +99,12 @@ class ProuductDetailsVC: UIViewController {
         dismiss(animated: true)
     }
     
-    @IBAction func addToCartBtn(_ sender: Any) {
+    @IBAction func addToCartBtn(_ sender: UIButton) {
+        if sender.titleLabel?.text == "  Add to cart"{
+            sender.setTitle("  Remove from cart", for: .normal)
+        }else{
+            sender.setTitle("  Add to cart", for: .normal)
+        }
         cartApi.addOrRemoveproductFromCart(id: (productdetails?.id)!)
     }
     

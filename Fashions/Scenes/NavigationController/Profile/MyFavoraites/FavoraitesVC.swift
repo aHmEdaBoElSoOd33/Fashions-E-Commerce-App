@@ -15,8 +15,11 @@ class FavoraitesVC: UIViewController {
      
     
     //MARK: - Variables
+     
+    var cartApi = CartApi()
     var wishlistApi = WishlistApi()
     var wishlistArray : [WishlistData] = []
+    var cartArray : [CartItem] = []
     lazy var indicatorView : UIActivityIndicatorView = {
         self.activityIndicator(style: .large , center: self.view.center)
     }()
@@ -34,22 +37,27 @@ class FavoraitesVC: UIViewController {
     func getWishlistDataFromApi(){
         wishlistApi.getFavoriteProducts { data in
             self.wishlistArray = data
-            self.wishlistCollectionview.reloadData()
-            self.indicatorView.stopAnimating()
-            self.view.isUserInteractionEnabled = true
+            self.getCartDataFromApi()
         }
     }
     
-    
-    
+    func getCartDataFromApi(){
+        cartApi.getCartProducts { dataArray, data in
+            self.cartArray = dataArray!
+            self.indicatorView.stopAnimating()
+            self.view.isUserInteractionEnabled = true
+            self.wishlistCollectionview.reloadData()
+        }
+    }
+     
     func uisetUp(){
+        cartApi.delegate = self
         view.addSubview(indicatorView)
         indicatorView.startAnimating()
         view.isUserInteractionEnabled = false
         setupCell(collectionview: wishlistCollectionview, ID: FavoraitesCollectionViewCell.ID)
         wishlistCollectionview.dataSource = self
         wishlistCollectionview.delegate = self
-          
     }
      
     
@@ -64,13 +72,43 @@ class FavoraitesVC: UIViewController {
     
 }
 
-extension FavoraitesVC : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout{
+extension FavoraitesVC : UICollectionViewDelegate , UICollectionViewDataSource , UICollectionViewDelegateFlowLayout , CellSubclassWishlistDelegate , CartApiDelegate{
+    func cartRequestisDone(message: String) {
+        self.view.isUserInteractionEnabled = true
+        showALert(message: message)
+    }
+    
+    func cartRequestisFail(message: String) {
+        self.view.isUserInteractionEnabled = true
+        showALert(message: message)
+    }
+    
+    
+    func buttonTapped(cell: FavoraitesCollectionViewCell) {
+        guard let indexPath = self.wishlistCollectionview.indexPath(for: cell) else { return }
+        self.view.isUserInteractionEnabled = false
+        print("Button tapped on row \(indexPath.row)")
+        cartApi.addOrRemoveproductFromCart(id: (wishlistArray[indexPath.row].product?.id)!)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return wishlistArray.count
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: FavoraitesCollectionViewCell.ID, for: indexPath) as! FavoraitesCollectionViewCell
+        if cartArray.isEmpty{
+            cell.addToCartBtn.setTitle("Add to Cart", for: .normal)
+        }else{
+            for i in 0...cartArray.count-1{
+                if wishlistArray[indexPath.row].product?.id == cartArray[i].product?.id{
+                    cell.addToCartBtn.setTitle("Remove From Cart", for: .normal)
+                }else{
+                    cell.addToCartBtn.setTitle("Add to Cart", for: .normal)
+                }
+            }
+        }
+        cell.delegate = self
         cell.viewCell.layer.shadowColor = UIColor.black.cgColor
         cell.viewCell.layer.shadowOpacity = 0.2
         cell.viewCell.layer.shadowOffset = CGSize(width: 0, height: 5)
@@ -87,7 +125,26 @@ extension FavoraitesVC : UICollectionViewDelegate , UICollectionViewDataSource ,
     }
     
     
-    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        var numOfSections: Int = 0
+            if wishlistArray.count != 0
+            {
+                //collectionView.separatorStyle = .singleLine
+                numOfSections            = 1
+                collectionView.backgroundView = nil
+            }
+            else
+            {
+                let noDataLabel: UILabel  = UILabel(frame: CGRect(x: 0, y: 0, width: collectionView.bounds.size.width, height: collectionView.bounds.size.height))
+                noDataLabel.text = "No items in wishlist yet"
+                noDataLabel.font = .boldSystemFont(ofSize: 20)
+                noDataLabel.textColor     = UIColor.lightGray
+                noDataLabel.textAlignment = .center
+                collectionView.backgroundView  = noDataLabel
+                //collectionView.separatorStyle  = .none
+            }
+            return numOfSections
+    }
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let vc = ProuductDetailsVC()
         vc.id = wishlistArray[indexPath.row].product?.id

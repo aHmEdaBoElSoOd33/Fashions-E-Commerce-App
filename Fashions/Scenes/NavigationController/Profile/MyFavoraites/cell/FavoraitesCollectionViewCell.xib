@@ -31,21 +31,21 @@
                                 </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nUI-1F-Vw6">
-                                <rect key="frame" x="135.66666666666666" y="13.333333333333334" width="283.33333333333337" height="19.333333333333329"/>
+                                <rect key="frame" x="125.66666666666666" y="13.333333333333334" width="293.33333333333337" height="19.333333333333329"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VYA-Jq-rYT">
-                                <rect key="frame" x="135.66666666666666" y="99.333333333333329" width="42.333333333333343" height="19.333333333333329"/>
+                                <rect key="frame" x="125.66666666666664" y="99.333333333333329" width="42.333333333333329" height="19.333333333333329"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i3X-tf-cxM">
-                                <rect key="frame" x="287.33333333333331" y="79.333333333333329" width="131.66666666666669" height="39.333333333333329"/>
+                                <rect key="frame" x="265.33333333333331" y="79.333333333333329" width="153.66666666666669" height="39.333333333333329"/>
                                 <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <fontDescription key="fontDescription" type="boldSystem" pointSize="15"/>
+                                <fontDescription key="fontDescription" type="boldSystem" pointSize="12"/>
                                 <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
                                 <state key="normal" title="Add to Cart"/>
                                 <userDefinedRuntimeAttributes>
@@ -53,6 +53,9 @@
                                         <real key="value" value="15"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <action selector="addToCartBtn:" destination="gTV-IL-0wX" eventType="touchUpInside" id="DT1-Gp-F9S"/>
+                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,11 +65,11 @@
                             <constraint firstItem="i3X-tf-cxM" firstAttribute="height" secondItem="Gsp-tp-14B" secondAttribute="height" multiplier="0.3" id="ENd-4v-X5n"/>
                             <constraint firstItem="VYA-Jq-rYT" firstAttribute="bottom" secondItem="aFB-8M-R6k" secondAttribute="bottom" id="FTJ-Fy-ra1"/>
                             <constraint firstItem="aFB-8M-R6k" firstAttribute="leading" secondItem="Gsp-tp-14B" secondAttribute="leading" constant="10" id="Hpx-4x-2j3"/>
-                            <constraint firstItem="i3X-tf-cxM" firstAttribute="width" secondItem="Gsp-tp-14B" secondAttribute="width" multiplier="0.3" id="ReJ-rB-lZo"/>
+                            <constraint firstItem="i3X-tf-cxM" firstAttribute="width" secondItem="Gsp-tp-14B" secondAttribute="width" multiplier="0.35" id="ReJ-rB-lZo"/>
                             <constraint firstAttribute="trailing" secondItem="i3X-tf-cxM" secondAttribute="trailing" constant="20" id="Vfa-mB-dc8"/>
                             <constraint firstAttribute="trailing" secondItem="nUI-1F-Vw6" secondAttribute="trailing" constant="20" id="XIv-yH-V7i"/>
-                            <constraint firstItem="nUI-1F-Vw6" firstAttribute="leading" secondItem="aFB-8M-R6k" secondAttribute="trailing" constant="20" id="cSD-15-Q2I"/>
-                            <constraint firstItem="VYA-Jq-rYT" firstAttribute="leading" secondItem="aFB-8M-R6k" secondAttribute="trailing" constant="20" id="oyP-QE-srq"/>
+                            <constraint firstItem="nUI-1F-Vw6" firstAttribute="leading" secondItem="aFB-8M-R6k" secondAttribute="trailing" constant="10" id="cSD-15-Q2I"/>
+                            <constraint firstItem="VYA-Jq-rYT" firstAttribute="leading" secondItem="aFB-8M-R6k" secondAttribute="trailing" constant="10" id="oyP-QE-srq"/>
                             <constraint firstItem="aFB-8M-R6k" firstAttribute="centerY" secondItem="Gsp-tp-14B" secondAttribute="centerY" id="tdV-TC-oaa"/>
                             <constraint firstItem="nUI-1F-Vw6" firstAttribute="top" secondItem="aFB-8M-R6k" secondAttribute="top" id="ybc-3s-bm9"/>
                         </constraints>
@@ -92,6 +95,7 @@
                 </userDefinedRuntimeAttribute>
             </userDefinedRuntimeAttributes>
             <connections>
+                <outlet property="addToCartBtn" destination="i3X-tf-cxM" id="wkz-Ea-h34"/>
                 <outlet property="productImage" destination="aFB-8M-R6k" id="PAH-Rq-3oS"/>
                 <outlet property="productName" destination="nUI-1F-Vw6" id="2yq-cH-6jM"/>
                 <outlet property="productPrice" destination="VYA-Jq-rYT" id="DBc-IL-qoJ"/>
