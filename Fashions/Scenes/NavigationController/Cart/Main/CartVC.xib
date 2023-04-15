@@ -11,6 +11,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CartVC" customModule="Fashions" customModuleProvider="target">
             <connections>
                 <outlet property="CartBtn" destination="hUW-n2-4VJ" id="8gk-KT-BrV"/>
+                <outlet property="EmptyCartLbl" destination="Hkm-aj-1Bf" id="NVN-oX-Gkr"/>
                 <outlet property="addAddressBtn" destination="Ds5-3x-Ts4" id="aDl-w3-Q5J"/>
                 <outlet property="addressCollectionView" destination="pZ1-d2-QgB" id="ocr-Ql-zDx"/>
                 <outlet property="cartTableView" destination="jxV-N9-IKI" id="xA1-RA-wty"/>
@@ -125,12 +126,19 @@
                         <action selector="addAddressBtn:" destination="-1" eventType="touchUpInside" id="dCd-Rf-QYI"/>
                     </connections>
                 </button>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Cart is empty" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Hkm-aj-1Bf">
+                    <rect key="frame" x="152.33333333333334" y="282" width="109.33333333333334" height="21"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
+                    <color key="textColor" white="0.66666666666666663" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <nil key="highlightedColor"/>
+                </label>
             </subviews>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>
             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
             <constraints>
                 <constraint firstItem="LGW-Uc-a8D" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="4Tg-O3-jJg"/>
                 <constraint firstItem="hUW-n2-4VJ" firstAttribute="width" secondItem="hUW-n2-4VJ" secondAttribute="height" multiplier="1:1" id="4uv-sl-mQw"/>
+                <constraint firstItem="Hkm-aj-1Bf" firstAttribute="centerX" secondItem="jxV-N9-IKI" secondAttribute="centerX" id="67P-tt-ahA"/>
                 <constraint firstItem="S21-ic-uSm" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="7bs-nW-CSS"/>
                 <constraint firstItem="hUW-n2-4VJ" firstAttribute="top" secondItem="fnl-2z-Ty3" secondAttribute="top" constant="20" id="Aq9-fW-ny0"/>
                 <constraint firstItem="LGW-Uc-a8D" firstAttribute="top" secondItem="6Sj-2g-zfJ" secondAttribute="bottom" constant="20" id="CGg-W9-Cwa"/>
@@ -145,6 +153,7 @@
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="bottom" secondItem="LGW-Uc-a8D" secondAttribute="bottom" constant="40" id="Mpx-Hs-AX8"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="hUW-n2-4VJ" secondAttribute="trailing" constant="20" id="SGT-AI-Sp9"/>
                 <constraint firstItem="Kok-0j-039" firstAttribute="centerY" secondItem="6Sj-2g-zfJ" secondAttribute="centerY" id="YX5-MO-6u4"/>
+                <constraint firstItem="Hkm-aj-1Bf" firstAttribute="centerY" secondItem="jxV-N9-IKI" secondAttribute="centerY" id="frX-fu-f8x"/>
                 <constraint firstItem="gsJ-BY-4xR" firstAttribute="top" secondItem="jxV-N9-IKI" secondAttribute="bottom" constant="10" id="htA-bJ-Mpm"/>
                 <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ds5-3x-Ts4" secondAttribute="trailing" constant="20" id="jwY-pF-uKv"/>
                 <constraint firstItem="6Sj-2g-zfJ" firstAttribute="leading" secondItem="LGW-Uc-a8D" secondAttribute="leading" id="jxd-ha-p2J"/>

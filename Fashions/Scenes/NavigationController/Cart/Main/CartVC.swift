@@ -14,6 +14,7 @@ class CartVC: UIViewController {
     
     //MARK: - IBOutlets
     
+    @IBOutlet weak var EmptyCartLbl: UILabel!
     @IBOutlet weak var addAddressBtn: UIButton!
     @IBOutlet weak var addressCollectionView: UICollectionView!
     @IBOutlet weak var numberOfItems: UILabel!
@@ -50,6 +51,7 @@ class CartVC: UIViewController {
     //MARK: - Functions
     
     func uiSetup(){
+        EmptyCartLbl.isHidden = true
         orderApi.delegate = self
         cartApi.delegate = self
         view.addSubview(indicatorView)
@@ -68,6 +70,11 @@ class CartVC: UIViewController {
     func getCartDataFromApi(){
         cartApi.getCartProducts { dataArray, data in
             self.cartArray = dataArray!
+            if self.cartArray.isEmpty {
+                self.EmptyCartLbl.isHidden = false
+            }else{
+                self.EmptyCartLbl.isHidden = true
+            }
             self.numberOfItems.text = "Total(\((data?.cart_items?.count)!) item)"
             self.totalPrice.text = "\(Float((data?.total)!))$"
             self.getAddressdataFromApi()
@@ -179,37 +186,40 @@ extension CartVC : UITableViewDelegate , UITableViewDataSource , UICollectionVie
             self.cartApi.addOrRemoveproductFromCart(id: (self.cartArray[indexPath.row].product?.id)!)
             self.cartArray.remove(at: indexPath.row)
             tableView.beginUpdates()
-            tableView.deleteRows(at: [indexPath], with: .automatic)
+            tableView.deleteRows(at: [indexPath], with: .automatic) 
             tableView.endUpdates()
             completionHandler(true)
+            if self.cartArray.isEmpty {
+                self.EmptyCartLbl.isHidden = false
+            }else{
+                self.EmptyCartLbl.isHidden = true
+            }
         }
-        
         deleteAction.image = UIImage(named: "delete")
-        deleteAction.backgroundColor = .black
-        
+        deleteAction.backgroundColor = .black 
         return UISwipeActionsConfiguration(actions: [deleteAction])
     }
-    
-    func numberOfSections(in tableView: UITableView) -> Int {
-        var numOfSections: Int = 0
-            if cartArray.count != 0
-            {
-                //collectionView.separatorStyle = .singleLine
-                numOfSections            = 1
-                tableView.backgroundView = nil
-            }
-            else
-            {
-                let noDataLabel: UILabel  = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
-                noDataLabel.text = "No items in cart yet"
-                noDataLabel.font = .boldSystemFont(ofSize: 20)
-                noDataLabel.textColor     = UIColor.lightGray
-                noDataLabel.textAlignment = .center
-                tableView.backgroundView  = noDataLabel
-                //collectionView.separatorStyle  = .none
-            }
-            return numOfSections
-    }
+
+//    func numberOfSections(in tableView: UITableView) -> Int {
+//        var numOfSections: Int = 0
+//            if cartArray.count != 0
+//            {
+//                //collectionView.separatorStyle = .singleLine
+//                numOfSections            = 1
+//                tableView.backgroundView = nil
+//            }
+//            else
+//            {
+//                let noDataLabel: UILabel  = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+//                noDataLabel.text = "No items in cart yet"
+//                noDataLabel.font = .boldSystemFont(ofSize: 20)
+//                noDataLabel.textColor     = UIColor.lightGray
+//                noDataLabel.textAlignment = .center
+//                tableView.backgroundView  = noDataLabel
+//                //collectionView.separatorStyle  = .none
+//            }
+//            return numOfSections
+//    }
     
     func numberOfSections(in collectionView: UICollectionView) -> Int {
         var numOfSections: Int = 0

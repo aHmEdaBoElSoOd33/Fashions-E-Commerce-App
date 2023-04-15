@@ -18,6 +18,7 @@ class OrdersVC: UIViewController {
     
     
     //MARK: - Variables
+    var status : String?
     var orderApi = OrdersApi()
     var lastSender = 3
     var ordersArray : [OrderModelDataDetails] = []
@@ -34,14 +35,14 @@ class OrdersVC: UIViewController {
     }
     //MARK: - Functions
     func uiSetup(){
-         
+        status = "new"
         cancelledBtn.layer.borderColor = UIColor.lightGray.cgColor
         cancelledBtn.layer.borderWidth = 0.5
         newBtn.isSelected = true 
         newBtn.backgroundColor = .black
         newBtn.layer.borderWidth = 0
         
-        view.isUserInteractionEnabled = false
+        ordersCollectionView.isUserInteractionEnabled = false
         indecatorView = activityIndicator(style: .large, center: self.view.center)
         setupCell(collectionview: ordersCollectionView, ID: OrderCollectionViewCell.ID)
         indecatorView?.startAnimating()
@@ -57,7 +58,7 @@ class OrdersVC: UIViewController {
             self.fillteredOrdersArray = self.ordersArray.filter{$0.status == "New"}
             self.ordersCollectionView.reloadData()
             self.indecatorView?.stopAnimating()
-            self.view.isUserInteractionEnabled = true
+            self.ordersCollectionView.isUserInteractionEnabled = true
         }
     }
     
@@ -78,6 +79,7 @@ class OrdersVC: UIViewController {
             sender.backgroundColor = .black
             sender.layer.borderWidth = 0
             fillteredOrdersArray = ordersArray.filter{$0.status == "New"}
+            status = "new"
             ordersCollectionView.reloadData()
         default:
             sender.isSelected = true
@@ -85,6 +87,7 @@ class OrdersVC: UIViewController {
             sender.backgroundColor = .black
             sender.layer.borderWidth = 0
             fillteredOrdersArray = ordersArray.filter{$0.status == "Cancelled"}
+            status = "cancelled"
             ordersCollectionView.reloadData()
         }
         lastSender = sender.tag
@@ -100,6 +103,27 @@ extension OrdersVC : UICollectionViewDelegate , UICollectionViewDataSource , UIC
    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return fillteredOrdersArray.count
+    }
+    
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        var numOfSections: Int = 0
+            if fillteredOrdersArray.count != 0
+            {
+                //collectionView.separatorStyle = .singleLine
+                numOfSections            = 1
+                collectionView.backgroundView = nil
+            }
+            else
+            {
+                let noDataLabel: UILabel  = UILabel(frame: CGRect(x: 0, y: 0, width: collectionView.bounds.size.width, height: collectionView.bounds.size.height))
+                noDataLabel.text = "There are no \(status!) orders"
+                noDataLabel.font = .boldSystemFont(ofSize: 20)
+                noDataLabel.textColor     = UIColor.lightGray
+                noDataLabel.textAlignment = .center
+                collectionView.backgroundView  = noDataLabel
+                //collectionView.separatorStyle  = .none
+            }
+            return numOfSections
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

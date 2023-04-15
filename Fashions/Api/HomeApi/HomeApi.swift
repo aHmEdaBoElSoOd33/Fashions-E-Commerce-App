@@ -13,7 +13,14 @@ protocol HomeApiDelegate{
     
     func profireDataIsDone(Data: DataClass)
     func profileDataIsFail(masssage: String)
+    
 }
+
+protocol updateProfileDelegate{
+    func updateprofileIsDone(message:String)
+    func updateprofileIsFail(message:String)
+}
+
 
 class HomeApi{
     
@@ -22,7 +29,7 @@ class HomeApi{
     let UserProfileUrl = RegisterApi.BASE_URL + "profile"
    
     var delegate : HomeApiDelegate?
-    
+    var profileDelegate : updateProfileDelegate?
     func getUserProfileData(){
         let header = HTTPHeaders(["lang":"en","Authorization":token!])
         let params : [String:String]? = nil
@@ -60,5 +67,55 @@ class HomeApi{
                 
             }
         }
-    } 
+        
+    }
+     
+    func updateProfile(name : String,image:Data,email:String , phone: String){
+          
+        print(image)
+        // Set the parameters for the request
+        let parameters: [String: String] = [
+            "name": name,
+            "email": email,
+            "phone" : phone
+        ]
+        
+
+        // Set the headers for the request
+        let headers: HTTPHeaders = [
+            "Authorization": token!,
+            "lang":"en",
+            "Content-Type": "application/json"
+        ]
+
+        // Set the URL for the request
+        let url = "https://student.valuxapps.com/api/update-profile"
+
+        
+        
+        // Send the PUT request with the image data and other parameters
+        
+         
+        AF.upload(multipartFormData: { multipartFormData in
+            // Append the image data to the request body
+            multipartFormData.append(image, withName: "image", fileName: "profile_image.jpg", mimeType: "image/jpeg")
+            print(name.data(using: .utf8)!)
+             //Append other parameters to the request body
+            for (key, value) in parameters {
+                    multipartFormData.append(value.data(using: .utf8)!, withName: key)
+            }
+        }, to: url, method: .put, headers: headers).responseDecodable(of: UpdateProfileResponse.self) { response in
+            switch response.result {
+            case .success(let data):
+                 
+                self.profileDelegate?.updateprofileIsDone(message: data.message)
+            case .failure(let error):
+                self.profileDelegate?.updateprofileIsFail(message: error.localizedDescription)
+            }
+        }
+
+    }
+    
+     
+    
 }

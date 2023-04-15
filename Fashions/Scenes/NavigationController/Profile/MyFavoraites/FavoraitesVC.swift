@@ -45,7 +45,7 @@ class FavoraitesVC: UIViewController {
         cartApi.getCartProducts { dataArray, data in
             self.cartArray = dataArray!
             self.indicatorView.stopAnimating()
-            self.view.isUserInteractionEnabled = true
+            self.wishlistCollectionview.isUserInteractionEnabled = true
             self.wishlistCollectionview.reloadData()
         }
     }
@@ -54,7 +54,7 @@ class FavoraitesVC: UIViewController {
         cartApi.delegate = self
         view.addSubview(indicatorView)
         indicatorView.startAnimating()
-        view.isUserInteractionEnabled = false
+        wishlistCollectionview.isUserInteractionEnabled = false
         setupCell(collectionview: wishlistCollectionview, ID: FavoraitesCollectionViewCell.ID)
         wishlistCollectionview.dataSource = self
         wishlistCollectionview.delegate = self

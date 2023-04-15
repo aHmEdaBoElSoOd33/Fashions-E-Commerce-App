@@ -123,7 +123,7 @@ extension HomeVC : UICollectionViewDelegate , UICollectionViewDataSource,UIColle
         UserDefaults.standard.set(Data.phone, forKey: "userPhone")
         UserDefaults.standard.set(Data.name, forKey: "userName")
         UserDefaults.standard.set(Data.email, forKey: "userEmail")
-        UserDefaults.standard.set(Data.image, forKey: "userImage")
+        UserDefaults.standard.set(Data.image, forKey: "userImage") 
     }
     
     func profileDataIsFail(masssage: String) {
